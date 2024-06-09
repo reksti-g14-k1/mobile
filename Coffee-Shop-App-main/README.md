@@ -9,12 +9,12 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 git clone https://github.com/reksti-g14-k1/mobile.git
 ```
 
-## Step 3: Change Directory to Coffee-Shop-App-Main
+## Step 2: Change Directory to Coffee-Shop-App-Main
 ```bash
 cd Coffee-Shop-App-Main
 ```
 
-## Step 4: Install dependencies
+## Step 3: Install dependencies
 ```bash
 # using npm
 npm install
@@ -22,14 +22,14 @@ npm install
 # OR using Yarn
 yarn install
 ```
-## Step 5a: To run on your devices (Use USB Debugging)
+## Step 4a: To run on your devices (Use USB Debugging)
 
 [Running On Device (USB Debugging)](https://reactnative.dev/docs/running-on-device#:~:text=You%20can%20use%20this%20method,USB%20to%20your%20development%20machine.&text=You%20can%20now%20enable%20Live,your%20JavaScript%20code%20has%20changed)
 
 
 or
 
-## Step 5b: Start the Metro Server
+## Step 4b: Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
