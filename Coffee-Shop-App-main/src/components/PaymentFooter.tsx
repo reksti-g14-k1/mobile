@@ -24,12 +24,13 @@ const PaymentFooter: React.FC<PaymentFooterProps> = ({
   buttonPressHandler,
   buttonTitle,
 }) => {
+  const formattedPrice = parseFloat(price.price).toFixed(3);
   return (
     <View style={styles.PriceFooter}>
       <View style={styles.PriceContainer}>
         <Text style={styles.PriceTitle}>Price</Text>
         <Text style={styles.PriceText}>
-          {price.currency} <Text style={styles.Price}>{price.price}</Text>
+          {price.currency} <Text style={styles.Price}>{formattedPrice}</Text>
         </Text>
       </View>
       <TouchableOpacity
@@ -46,21 +47,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: SPACING.space_20,
-    padding: SPACING.space_20,
+    gap: SPACING.space_10,
+    padding: SPACING.space_10,
   },
   PriceContainer: {
     alignItems: 'center',
-    width: 100,
+    width: 150,
   },
   PriceTitle: {
     fontFamily: FONTFAMILY.poppins_medium,
-    fontSize: FONTSIZE.size_14,
+    fontSize: FONTSIZE.size_16,
     color: COLORS.secondaryLightGreyHex,
   },
   PriceText: {
     fontFamily: FONTFAMILY.poppins_semibold,
-    fontSize: FONTSIZE.size_24,
+    fontSize: FONTSIZE.size_20,
     color: COLORS.primaryOrangeHex,
   },
   Price: {

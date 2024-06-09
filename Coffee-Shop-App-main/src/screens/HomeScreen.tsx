@@ -134,7 +134,7 @@ const HomeScreen = ({navigation}: any) => {
         {/* CAFE CONDITION */}
         <Text style={styles.ScreenTitle}>
           Cafe Condition :{'\n'} 
-          <CafeCondition condition="PADAT" />
+          <CafeCondition condition="RINGAN" />
           {/* <CafeCondition condition="SEDANG" />
           <CafeCondition condition="RINGAN" /> */}
         </Text>

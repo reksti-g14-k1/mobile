@@ -26,6 +26,7 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
   prices,
   ItemPrice,
 }) => {
+  const formattedItemPrice = parseFloat(ItemPrice).toFixed(3);
   return (
     <LinearGradient
       start={{x: 0, y: 0}}
@@ -42,7 +43,8 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
         </View>
         <View>
           <Text style={styles.CardCurrency}>
-            Rp <Text style={styles.CardPrice}>{ItemPrice}</Text>
+            Rp {'\n'}
+            <Text style={styles.CardPrice}>{formattedItemPrice}</Text>
           </Text>
         </View>
       </View>
@@ -74,7 +76,7 @@ const OrderItemCard: React.FC<OrderItemCardProps> = ({
               X <Text style={styles.Price}>{data.quantity}</Text>
             </Text>
             <Text style={styles.CardQuantityPriceText}>
-              Rp {(data.quantity * data.price).toFixed(2).toString()}
+              Rp {(data.quantity * data.price).toFixed(3).toString()}
             </Text>
           </View>
         </View>
@@ -156,7 +158,7 @@ const styles = StyleSheet.create({
   },
   PriceCurrency: {
     fontFamily: FONTFAMILY.poppins_semibold,
-    fontSize: FONTSIZE.size_18,
+    fontSize: FONTSIZE.size_14,
     color: COLORS.primaryOrangeHex,
   },
   Price: {

@@ -78,17 +78,17 @@ const OrderHistoryScreen = ({navigation}: any) => {
               </View>
             )}
           </View>
-          {OrderHistoryList.length > 0 ? (
+          {/* {OrderHistoryList.length > 0 ? (
             <TouchableOpacity
               style={styles.DownloadButton}
               onPress={() => {
                 buttonPressHandler();
               }}>
-              <Text style={styles.ButtonText}>Download</Text>
+              <Text style={styles.ButtonText}>Done</Text>
             </TouchableOpacity>
           ) : (
             <></>
-          )}
+          )} */}
         </View>
       </ScrollView>
     </View>

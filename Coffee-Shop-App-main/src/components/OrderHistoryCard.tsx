@@ -1,35 +1,46 @@
 import {
   StyleSheet,
   Text,
-  Touchable,
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
-import {COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
+import React, { useState } from 'react';
+import { COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../theme/theme';
 import OrderItemCard from './OrderItemCard';
+
 interface OrderHistoryCardProps {
   navigationHandler: any;
   CartList: any;
   CartListPrice: string;
   OrderDate: string;
 }
+
 const OrderHistoryCard: React.FC<OrderHistoryCardProps> = ({
   navigationHandler,
   CartList,
   CartListPrice,
   OrderDate,
 }) => {
+  const [status, setStatus] = useState('In progress');
+  const [isDone, setIsDone] = useState(false); // Track whether the status is set to Done
+  const formattedCartListPrice = parseFloat(CartListPrice).toFixed(3);
+
+  const handleStatusChange = () => {
+    setStatus('Done'); // Set status to Done
+    setIsDone(true); // Set the button disabled
+  };
+
   return (
     <View style={styles.CardContainer}>
       <View style={styles.CardHeader}>
         <View>
           <Text style={styles.HeaderTitle}>Order Time</Text>
           <Text style={styles.HeaderSubtitle}>{OrderDate}</Text>
+          <Text style={styles.Status}>In Progress</Text>
         </View>
         <View style={styles.PriceContainer}>
           <Text style={styles.HeaderTitle}>Total Amount</Text>
-          <Text style={styles.HeaderPrice}>Rp {CartListPrice}</Text>
+          <Text style={styles.HeaderPrice}>Rp {formattedCartListPrice}</Text>
         </View>
       </View>
       <View style={styles.ListContainer}>
@@ -54,6 +65,13 @@ const OrderHistoryCard: React.FC<OrderHistoryCardProps> = ({
           </TouchableOpacity>
         ))}
       </View>
+      {/* {!isDone && ( // Render the button only if it's not done
+        <TouchableOpacity
+          style={styles.StatusButton}
+          onPress={handleStatusChange}>
+          <Text style={styles.StatusButtonText}>Mark as Done</Text>
+        </TouchableOpacity>
+      )} */}
     </View>
   );
 };
@@ -88,6 +106,24 @@ const styles = StyleSheet.create({
   },
   ListContainer: {
     gap: SPACING.space_20,
+  },
+  Status: {
+    fontFamily: FONTFAMILY.poppins_regular,
+    fontSize: FONTSIZE.size_16,
+    color: COLORS.primaryWhiteHex,
+  },
+  StatusButton: {
+    marginTop: SPACING.space_20,
+    paddingVertical: SPACING.space_10,
+    paddingHorizontal: SPACING.space_20,
+    backgroundColor: COLORS.primaryOrangeHex,
+    borderRadius: SPACING.space_10,
+    alignItems: 'center',
+  },
+  StatusButtonText: {
+    fontFamily: FONTFAMILY.poppins_medium,
+    fontSize: FONTSIZE.size_16,
+    color: COLORS.primaryWhiteHex,
   },
 });
 
